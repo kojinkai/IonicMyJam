@@ -6,14 +6,6 @@ angular.module('starter.services', [])
 .factory('PetService', ['$http', function($http) {
   // Might use a resource here that returns a JSON array
 
-  return {
-    getJoTD: function(callback) {
-      $http.get('http://api.thisismyjam.com/1/jamoftheday.json').success(function(data) {
-        callback(data);
-      });
-    }
-  }  
-
   // Some fake testing data
   var pets = [
     { id: 0, title: 'Cats', description: 'Furry little creatures. Obsessed with plotting assassination, but never following through on it.' },
@@ -22,13 +14,18 @@ angular.module('starter.services', [])
     { id: 3, title: 'Sharks', description: 'An advanced pet. Needs millions of gallons of salt water. Will happily eat you.' }
   ];
 
-  // return {
-  //   all: function() {
-  //     return pets;
-  //   },
-  //   get: function(petId) {
-  //     // Simple index lookup
-  //     return pets[petId];
-  //   }
-  // }
+  return {
+    getJoTD: function(callback) {
+      $http.get('http://api.thisismyjam.com/1/jamoftheday.json').success(function(data) {
+        callback(data);
+      });
+    },
+    all: function() {
+      return pets;
+    },
+    get: function(petId) {
+      // Simple index lookup
+      return pets[petId];
+    }     
+  }
 }]);
