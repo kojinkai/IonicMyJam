@@ -1,1 +1,4 @@
-angular.module('myjam', ['ionic']);
+angular.module('myJamApp', [
+  'ionic',
+  'ngResource'
+]);
