@@ -1,4 +1,6 @@
-IonicMyJam
-==========
+ionic-angular-cordova-seed
+==========================
 
-Ionic This is my Jam
+The perfect starting point for an Ionic project.
+
+- [Ionic Tutorials](http://ionicframework.com/tutorials/)
