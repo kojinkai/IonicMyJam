@@ -31,10 +31,10 @@ module.exports = function (grunt) {
         files: ['{.tmp,<%= yeoman.app %>}/js/{,*/}*.js'],
         tasks: ['newer:jshint:all']
       },
-      // jsTest: {
-      //   files: ['test/spec/{,*/}*.js'],
-      //   tasks: ['newer:jshint:test', 'karma']
-      // },
+      jsTest: {
+        files: ['test/spec/{,*/}*.js'],
+        tasks: ['newer:jshint:test', 'karma']
+      },
       scss: {
         files: ['<%= yeoman.app %>/scss/{,*/}*.scss'],
         tasks: ['sass:dev']
