@@ -1,6 +1,6 @@
 angular.module('myJamApp')
-  .controller('MenuCtrl', ['$scope', 'MenuService', function($scope, MenuService) {
-    
+  .controller('MenuCtrl', ['$scope', 'MenuService', 'UserService', function($scope, MenuService, UserService) {
+
     // grab the menu items array
     $scope.navigation = MenuService.navigation();
 

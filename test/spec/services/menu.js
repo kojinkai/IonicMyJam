@@ -3,16 +3,13 @@
 describe('Service: MenuService', function () {
 
   // instantiate service
-  var httpBackend,
-    Menu,
+  var Menu,
     navArray;
   
-
   // load the service's module
   beforeEach(module('myJamApp'));
 
-  beforeEach(inject(function ($httpBackend, _MenuService_) {
-    httpBackend = $httpBackend;
+  beforeEach(inject(function (_MenuService_) {
     Menu = _MenuService_;
     navArray = Menu.navigation();
   }));
