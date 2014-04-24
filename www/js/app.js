@@ -14,17 +14,17 @@ angular.module('myJamApp', [
     // setup an abstract state for the tabs directive
     .state('home', {
       url: '/home',
-      controller: 'homeCtrl',
+      controller: 'HomeCtrl',
       templateUrl: 'templates/home.html'
     })    
     .state('myjams', {
       url: '/myjams',
-      controller: 'myJamsCtrl',
+      controller: 'MyJamsCtrl',
       templateUrl: 'templates/myjams.html'
     })
     .state('discover', {
       url: '/discover',
-      controller: 'discoverCtrl',
+      controller: 'DiscoverCtrl',
       templateUrl: 'templates/discover.html'
     });
 

@@ -6,7 +6,7 @@ angular.module('myJamApp')
 
     var navItems = [
       { title: 'Home', linkClass: 'icon ion-map', link: '/'},
-      { title: 'My Jams', linkClass: 'icon ion-gear-b', link: 'jams'},
+      { title: 'My Jams', linkClass: 'icon ion-gear-b', link: 'myjams'},
       { title: 'Discover', linkClass: 'icon ion-star', link: 'discover'}
      ];
 
