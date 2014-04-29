@@ -22,5 +22,5 @@ describe('Controller: MenuCtrl', function () {
 
   it('should assign a goTo menu function to the scope', function() {
     expect(typeof scope.goTo).toEqual('function');
-  });  
+  });
 });

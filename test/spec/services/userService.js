@@ -13,7 +13,7 @@ describe('Service: UserService', function () {
     
     beforeEach(inject(function (_UserService_) {
       UserService = _UserService_;
-    }));    
+    }));
     // basic menu init test
     it('should do something', function () {
       expect(!!UserService).toBe(true);
@@ -26,17 +26,21 @@ describe('Service: UserService', function () {
       UserService = _UserService_;
 
       httpBackEnd.expectGET('http://api.thisismyjam.com/1/boxdeluxe.json').respond({
-        "person": {
-            "apiUrl": "http://www.thisismyjam.com/1/boxdeluxe.json"
+        'person': {
+          'apiUrl': 'http://www.thisismyjam.com/1/boxdeluxe.json'
         }
       });
+    }));
 
-    }));    
-    it('the person object should contain a jam avatar', function () {
+    it('the UserService should return a promise containing data', function () {
       // expect the returned object to be undefined until we flush the backend
-      expect(UserService.userData()).toBeUndefined();
+      var dataTest;
+      UserService.get().then(function(data){
+        dataTest = data;
+      });
+      expect(dataTest).toBeUndefined();
       httpBackEnd.flush();
-      expect(UserService.userData()).toBeDefined();
+      expect(dataTest).toBeDefined();
     });
   });
 
