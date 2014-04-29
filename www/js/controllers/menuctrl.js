@@ -1,6 +1,7 @@
 angular.module('myJamApp')
   .controller('MenuCtrl', ['$scope', '$location','MenuService', 'UserService', function($scope, $location, MenuService, UserService) {
 
+    console.log('UserService is: ', UserService);
     // grab the menu items array
     $scope.navigation = MenuService.navigation();
 
@@ -10,4 +11,10 @@ angular.module('myJamApp')
       $location.path('/' + page);
     };
 
+    $scope.userData = UserService.get().then(function(data) {
+      $scope.userData = data;
+      console.log('controller data from promise: ', $scope.userData);
+    }, function(data, status, headers, config) {
+      throw new error(data, status, headers, config);
+    });
   }]);
