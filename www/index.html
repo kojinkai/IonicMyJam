@@ -27,9 +27,12 @@
         <ion-side-menu side="left">
           <ion-content has-header="false">
             <ion-list>
-              <ion-item ng-click="goTo(item.link)" class="item item-icon-left" ng-repeat="item in navigation">
+              <ion-item ng-click="goTo(item.link)" class="item item-icon-left" ng-repeat="item in navigation.mainNav">
                 <i ng-class="item.iconClass"></i>
                 {{ item.title }}
+              </ion-item>
+              <ion-item ng-click="goTo(navigation.profile.link)" class="item item-icon-left">
+                {{ profileInfo.person.name }}
               </ion-item>
             </ion-list>
           </ion-content>          
@@ -44,8 +47,8 @@
 
     <!-- build:js({.tmp,app}) scripts/scripts.js -->
       <script src="js/app.js"></script>
-      <script src="js/services/menu.js"></script>
       <script src="js/services/userService.js"></script>
+      <script src="js/services/menu.js"></script>
       <script src="js/controllers/menuctrl.js"></script>
       <script src="js/controllers/myjamsctrl.js"></script>
       <script src="js/controllers/homectrl.js"></script>

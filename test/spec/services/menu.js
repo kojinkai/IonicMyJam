@@ -41,8 +41,4 @@ describe('Service: MenuService', function () {
       }
     });
   });
-
-  describe('Returning the main navigation', function() {
-    // testing the HTTP backend
-  });
 });

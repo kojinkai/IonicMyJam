@@ -1,20 +1,26 @@
 'use strict';
 
 angular.module('myJamApp')
-  .factory('UserService', ['$http', function ($http) {
-    // Service logic
-    var url = 'http://api.thisismyjam.com/1/boxdeluxe.json',
-      response;
+  .factory('UserService', ['$http', '$q', '$log', function ($http, $q, $log) {
+    var url = 'http://api.thisismyjam.com/1/boxdeluxe.json';
 
-    $http.get(url, { cache: true }).success(function(data) {
-      response = data;
-      console.log(response);
-    });
-
-    // Public API here
     return {
-      userData: function () {
-        return response;
+      get: function() {
+        // get requests
+        // set up our promise paattern to store the results of the
+        // $http request
+        var deferred = $q.defer();
+
+        $http.get(url, { cache: true }).success(function(data) {
+            deferred.resolve(data);
+          })
+
+          .error(function(data, status, headers, config) {
+            $log.info(data, status, headers, config);
+            deferred.reject(data, status, headers, config);
+        });
+
+        return deferred.promise;
       }
-    };
+    }
   }]);
