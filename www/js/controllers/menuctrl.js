@@ -1,5 +1,5 @@
 angular.module('myJamApp')
-  .controller('MenuCtrl', ['$scope', '$location', 'MenuService', 'UserService', function($scope, $location, MenuService, UserService) {
+  .controller('MenuCtrl', ['$scope', '$location', '$ionicSideMenuDelegate', 'MenuService', 'UserService', function($scope, $location, $ionicSideMenuDelegate, MenuService, UserService) {
 
     // grab the menu items array
     $scope.navigation = MenuService.navigation();
@@ -10,15 +10,14 @@ angular.module('myJamApp')
     });
 
     // toggle the side menu when a menu link is clicked
-    $scope.openLeft = function() {
-      // $scope.sideMenuController.toggleLeft();
-      console.log($scope);
+    $scope.toggleLeft = function() {
+      $ionicSideMenuDelegate.toggleLeft();
     };
 
     // add the function to navigate the pages
     $scope.goTo = function(page) {
       console.log('going to ', page);
-      this.openLeft();
+      this.toggleLeft();
       $location.path('/' + page);
     };
 
