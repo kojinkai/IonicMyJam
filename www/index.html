@@ -1,42 +1,40 @@
 <!DOCTYPE html>
-<html>
+<html ng-app="myJamApp">
   <head>
     <meta charset="utf-8">
-    <title>My Jam</title>
     <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
-
+    <title>My Jam</title>
     <link href="lib/css/ionic.css" rel="stylesheet">
   </head>
-  <body ng-app="myJamApp">
-    <div ng-controller="MenuCtrl">
-      <ion-side-menus>
+  <body ng-controller="MenuCtrl">
+    <ion-side-menus>
 
-        <!-- Center content -->
-        <ion-side-menu-content>
-          <ion-header-bar class="bar-dark">
-            <h1 class="title">My Jam</h1>
-          </ion-header-bar>
-          <ion-content>
-          </ion-content>
-        </ion-side-menu-content>
+      <!-- Center content -->
+      <ion-side-menu-content>
+        <ion-header-bar class="bar-dark">
+        </ion-header-bar>
+        <ion-content>
+          <ion-nav-view>
 
-        <!-- Left menu -->
-        <ion-side-menu side="left">
-          <ion-content has-header="false">
-            <ion-list>
-              <ion-item ng-click="goTo(item.link)" class="item item-icon-left" ng-repeat="item in navigation.mainNav">
-                <i ng-class="item.iconClass"></i>
-                {{ item.title }}
-              </ion-item>
-              <ion-item ng-click="goTo(navigation.profile.link)" class="item item-icon-left">
-                {{ profileInfo.person.name }}
-              </ion-item>
-            </ion-list>
-          </ion-content>          
-        </ion-side-menu>
+          </ion-nav-view>
+        </ion-content>
+      </ion-side-menu-content>
 
-      </ion-side-menus>
-    </div>
+      <!-- Left menu -->
+      <ion-side-menu side="left">
+        <ion-content has-header="false">
+          <ion-list>
+            <ion-item ng-click="goTo(item.link)" class="item item-icon-left" ng-repeat="item in navigation.mainNav">
+              <i ng-class="item.iconClass"></i>
+              {{ item.title }}
+            </ion-item>
+            <ion-item ng-click="goTo(navigation.profile.link)" class="item item-icon-left">
+              {{ profileInfo.person.name }}
+            </ion-item>
+          </ion-list>
+        </ion-content>          
+      </ion-side-menu>
+    </ion-side-menus>
     <!-- build:js scripts/modules.js -->
       <script src="lib/js/ionic.bundle.js"></script>
       <script src="lib/js/angular/angular-resource.js"></script>
@@ -47,6 +45,9 @@
       <script src="js/services/userService.js"></script>
       <script src="js/services/menu.js"></script>
       <script src="js/controllers/menuctrl.js"></script>
+      <script src="js/controllers/myjamsctrl.js"></script>
+      <script src="js/controllers/homectrl.js"></script>
+      <script src="js/controllers/discoverctrl.js"></script>
     <!-- endbuild -->
 
     <!-- Needed for Cordova/PhoneGap (will be a 404 during development) -->

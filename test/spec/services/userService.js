@@ -25,11 +25,12 @@ describe('Service: UserService', function () {
       httpBackEnd = $httpBackend;
       UserService = _UserService_;
 
-      httpBackEnd.expectGET('http://api.thisismyjam.com/1/boxdeluxe.json').respond({
+      httpBackEnd.whenGET('http://api.thisismyjam.com/1/boxdeluxe.json').respond({
         'person': {
           'apiUrl': 'http://www.thisismyjam.com/1/boxdeluxe.json'
         }
       });
+      httpBackEnd.expectGET('http://api.thisismyjam.com/1/boxdeluxe.json');
     }));
 
     it('the UserService should return a promise containing data', function () {
