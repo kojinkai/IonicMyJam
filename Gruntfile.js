@@ -64,7 +64,8 @@ module.exports = function (grunt) {
         tasks: ['sass:dev']
       },
       gruntfile: {
-        files: ['Gruntfile.js']
+        files: ['Gruntfile.js'],
+        tasks: ['newer:jshint:gruntfile']
       },
       livereload: {
         options: {
@@ -83,7 +84,7 @@ module.exports = function (grunt) {
           'server.js',
           'lib/**/*.{js,json}'
         ],
-        tasks: ['newer:jshint:server', 'express:dev', 'wait'],
+        tasks: ['newer:jshint:server', 'express:dev'],
         options: {
           livereload: true,
           nospawn: true //Without this option specified express won't be reloaded
@@ -154,9 +155,18 @@ module.exports = function (grunt) {
         jshintrc: '.jshintrc',
         reporter: require('jshint-stylish')
       },
+      server: {
+        options: {
+          jshintrc: 'lib/.jshintrc'
+        },
+        src: [ 'lib/{,*/}*.js']
+      },
+      gruntfile: [
+        'Gruntfile.js'
+      ],
       all: [
         'Gruntfile.js',
-        '<%= yeoman.app %>/scripts/{,*/}*.js'
+        '<%= yeoman.app %>/js/{,*/}*.js'
       ],
       test: {
         options: {
