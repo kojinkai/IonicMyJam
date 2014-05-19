@@ -25,6 +25,30 @@ module.exports = function (grunt) {
       dist: 'dist'
     },
 
+    express: {
+      options: {
+        port: process.env.PORT || 9000
+      },
+      dev: {
+        options: {
+          script: 'server.js',
+          debug: true
+        }
+      }
+      // prod: {
+      //   options: {
+      //     script: 'dist/server.js',
+      //     node_env: 'production'
+      //   }
+      // }
+    },
+
+    open: {
+      server: {
+        url: 'http://localhost:<%= express.options.port %>'
+      }
+    },
+
     // Watches files for changes and runs tasks based on the changed files
     watch: {
       js: {
@@ -53,6 +77,17 @@ module.exports = function (grunt) {
           '.tmp/styles/{,*/}*.css',
           '<%= yeoman.app %>/images/{,*/}*.{png,jpg,jpeg,gif,webp,svg}'
         ]
+      },
+      express: {
+        files: [
+          'server.js',
+          'lib/**/*.{js,json}'
+        ],
+        tasks: ['newer:jshint:server', 'express:dev', 'wait'],
+        options: {
+          livereload: true,
+          nospawn: true //Without this option specified express won't be reloaded
+        }
       }
     },
 
@@ -160,10 +195,6 @@ module.exports = function (grunt) {
         }]
       }
     },
-
-    
-
-    
 
     // Renames files for browser caching purposes
     rev: {
@@ -345,17 +376,30 @@ module.exports = function (grunt) {
     }
   });
 
+  grunt.registerTask('express-keepalive', 'Keep grunt running', function() {
+    this.async();
+  });
 
   grunt.registerTask('serve', function (target) {
     if (target === 'dist') {
       return grunt.task.run(['build', 'connect:dist:keepalive']);
     }
 
+    // grunt.task.run([
+    //   'clean:server',
+    //   'concurrent:server',
+    //   'autoprefixer',
+    //   // 'connect:livereload',
+    //   'express:dev',
+    //   'open',
+    //   'watch'
+    // ]);
     grunt.task.run([
       'clean:server',
       'concurrent:server',
       'autoprefixer',
-      'connect:livereload',
+      'express:dev',
+      'open',
       'watch'
     ]);
   });
