@@ -18,6 +18,7 @@ var config = require('./lib/config/config');
 // Bootstrap models
 
 // var modelsPath = path.join(__dirname, 'lib/models');
+// console.log('models path: ', modelsPath);
 // fs.readdirSync(modelsPath).forEach(function (file) {
 //   if (/(.*)\.(js$|coffee$)/.test(file)) {
 //     require(modelsPath + '/' + file);
