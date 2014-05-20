@@ -1,3 +1,5 @@
+'use strict';
+
 angular.module('myJamApp', [
   'ionic',
   'ngResource'
@@ -16,7 +18,7 @@ angular.module('myJamApp', [
       url: '/home',
       controller: 'HomeCtrl',
       templateUrl: 'templates/home.html'
-    })    
+    })
     .state('myjams', {
       url: '/myjams',
       controller: 'MyJamsCtrl',
@@ -31,4 +33,4 @@ angular.module('myJamApp', [
   // if none of the above states are matched, use this as the fallback
   $urlRouterProvider.otherwise('/home');
 
-});;
+});

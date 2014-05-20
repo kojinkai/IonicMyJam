@@ -1,5 +1,10 @@
+'use strict';
+
 angular.module('myJamApp')
   .controller('MenuCtrl', ['$scope', '$location', '$ionicSideMenuDelegate', 'MenuService', 'UserService', function($scope, $location, $ionicSideMenuDelegate, MenuService, UserService) {
+
+    // assign our userservice to the scope
+    $scope.Homeusers = UserService;
 
     // grab the menu items array
     $scope.navigation = MenuService.navigation();

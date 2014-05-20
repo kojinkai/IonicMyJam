@@ -18,9 +18,9 @@ angular.module('myJamApp')
           .error(function(data, status, headers, config) {
             $log.info(data, status, headers, config);
             deferred.reject(data, status, headers, config);
-        });
+          });
 
         return deferred.promise;
       }
-    }
+    };
   }]);

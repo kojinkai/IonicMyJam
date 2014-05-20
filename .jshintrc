@@ -19,16 +19,7 @@
   "trailing": true,
   "smarttabs": true,
   "globals": {
-    "angular": false,
-    "ShoppingBasket": false,
-    "UserLocker": false,
-    "UserRecord": false,
-    "CartItem": false,
-    "CheckoutScenario": false,
-    "CheckoutControl": false,
-    "PhaseTwoControl": false,
-    "videojs": false,
-    "TweenLite": false,
+    "angular": true,
     "jQuery": false,
     "$": false
   }
